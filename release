@@ -1,0 +1,7 @@
+rel=1.0.0
+dev=1.0.1-SNAPSHOT
+mvn release:prepare -DignoreSnapshots=true -DreleaseVersion=$rel \
+    -DdevelopmentVersion=$dev -DautoVersionSubmodules=true \
+    -Dtag=$rel -DpushChanges=true \
+    -DreleaseProfiles=weld-se-embedded-11
+mvn release:perform
