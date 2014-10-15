@@ -1,14 +1,31 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
    <groupId>net.noderunner</groupId>
    <artifactId>jmx-annotations-parent</artifactId>
    <version>1.0.1-SNAPSHOT</version>
-   <description>JMX Annotations for CDI Parent</description>
-   <packaging>pom</packaging>
+   <name>JMX Annotations for CDI</name>
+   <description>JMX Annotations for CDI parent pom file.</description>
+   <url>https://github.com/genman/jmx-annotations/</url>
 
-  <scm>
-    <developerConnection>scm:git:git@github.isg.apple.com:iAd/jmx-annotations.git</developerConnection>
-  </scm>
+   <inceptionYear>2012</inceptionYear>
+   <packaging>pom</packaging>
+   <contributors>
+      <contributor>
+         <name>Elias Ross</name>
+         <email>genman@noderunner.net</email>
+      </contributor>
+   </contributors>
+   <licenses>
+      <license>
+         <name>GNU Lesser General Public License v2.1</name>
+         <url>http://www.spdx.org/licenses/LGPL-2.1</url>
+      </license>
+   </licenses>
+
+   <scm>
+      <developerConnection>scm:git:git@github.com:genman/jmx-annotations.git</developerConnection>
+   </scm>
 
    <build>
       <plugins>
@@ -26,27 +43,27 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <version>2.17</version>
             <configuration>
-                <classpathDependencyExcludes>
-                    <!-- exclude code absent api -->
-                    <classpathDependencyExclude>javax:javaee-api</classpathDependencyExclude>
-                    <classpathDependencyExclude>javax:javaee-web-api</classpathDependencyExclude>
-                </classpathDependencyExcludes>
+               <classpathDependencyExcludes>
+                  <!-- exclude code absent api -->
+                  <classpathDependencyExclude>javax:javaee-api</classpathDependencyExclude>
+                  <classpathDependencyExclude>javax:javaee-web-api</classpathDependencyExclude>
+               </classpathDependencyExcludes>
                <systemProperties>
                </systemProperties>
             </configuration>
          </plugin>
          <plugin>
-           <groupId>org.apache.maven.plugins</groupId>
-           <artifactId>maven-javadoc-plugin</artifactId>
-           <version>2.9.1</version>
-           <configuration>
-              <javaApiLinks>
-                <property>
-                  <name>api_1.7</name>
-                  <value>http://download.java.net/jdk7/docs/api/</value>
-                </property>
-              </javaApiLinks>
-           </configuration>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.9.1</version>
+            <configuration>
+               <javaApiLinks>
+                  <property>
+                     <name>api_1.7</name>
+                     <value>http://download.java.net/jdk7/docs/api/</value>
+                  </property>
+               </javaApiLinks>
+            </configuration>
          </plugin>
       </plugins>
    </build>
@@ -240,20 +257,12 @@
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <jboss.home>${env.JBOSS_HOME}</jboss.home>
       <wildfly>8.0.0.Alpha3</wildfly>
-      <!-- Override the managed version from jboss-as-depchain-->
+      <!-- Override the managed version from jboss-as-depchain -->
       <version.shrinkwrap_shrinkwrap>1.2.2</version.shrinkwrap_shrinkwrap>
    </properties>
 
-  <distributionManagement>
-
-    <repository>
-      <!-- Note: for this to work, update your ~/.m2/settings.xml -->
-      <id>iadbuild</id>
-      <name>iAd Ops Local Releases</name>
-      <url>https://iadbuild.apple.com/artifactory/ops-local</url>
-    </repository>
-
-  </distributionManagement>
+   <distributionManagement>
+   </distributionManagement>
 
    <modules>
       <module>annotations</module>
